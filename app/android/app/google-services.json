@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1037409689954",
+    "project_id": "techwiz-b81be",
+    "storage_bucket": "techwiz-b81be.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1037409689954:android:93f1e244b32c0dbae84c3b",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRj8yLw1CUsoUcec0fsJt0imiU78R1qK4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

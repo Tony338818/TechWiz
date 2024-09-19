@@ -1,0 +1,57 @@
+[
+  {
+    "id": "dsgn001",
+    "title": "Modern Living Room",
+    "roomType": "Living Room",
+    "style": "Modern",
+    "category": "Luxury",
+    "price": 12000,
+    "images": [
+      "https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/1571459/pexels-photo-1571459.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/1571458/pexels-photo-1571458.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    ]
+  },
+  {
+    "id": "dsgn002",
+    "title": "Contemporary Dining Room",
+    "roomType": "Dining Room",
+    "style": "Contemporary",
+    "category": "Mid-range",
+    "price": 8000,
+    "images": [
+      "https://example.com/images/diningroom1_view1.jpg",
+      "https://example.com/images/diningroom1_view2.jpg"
+    ],
+    "isCustomizable": false,
+    "isFavorite": true,
+    "savedBy": [
+      "user789"
+    ]
+  },
+  {
+    "id": "dsgn003",
+    "title": "Minimalist Bedroom",
+    "roomType": "Bedroom",
+    "style": "Minimalist",
+    "category": "Budget",
+    "price": 5000,
+    "images": [
+      "https://example.com/images/bedroom1_view1.jpg",
+      "https://example.com/images/bedroom1_view2.jpg"
+    ]
+  },
+  {
+    "id": "dsgn004",
+    "title": "Industrial Kitchen",
+    "roomType": "Kitchen",
+    "style": "Industrial",
+    "category": "Luxury",
+    "price": 15000,
+    "images": [
+      "https://images.pexels.com/photos/276554/pexels-photo-276554.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    ]
+  }
+]
