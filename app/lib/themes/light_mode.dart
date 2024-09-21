@@ -13,7 +13,8 @@ ThemeData lightTheme = ThemeData(
     error: Color(0xFFEF476F), // Error state (bright red)
   ),
   appBarTheme: AppBarTheme(
-    backgroundColor: Color(0xFFFFFFFF), // Light background for AppBar
+    backgroundColor: Colors.deepOrange[200],
+    // backgroundColor: Color(0xFFFFFFFF), // Light background for AppBar
     iconTheme: IconThemeData(color: Color(0xFF1D1D1D)), // Dark icons (to contrast the light background)
   ),
   textTheme: TextTheme(

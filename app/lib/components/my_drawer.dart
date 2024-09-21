@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:app/admin/Screens/Blog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -64,7 +65,9 @@ class MyDrawer extends StatelessWidget {
           ),
           // blog
           MyDrawerTile(text: 'B L O G',
-            onTap: (){},
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Blog()));
+            },
             icon: Icons.newspaper_sharp,
           ),
           // track order

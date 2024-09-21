@@ -32,6 +32,7 @@ class _GalleryDescriptionScreenState extends State<GalleryDescriptionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         title: ListTile(
           contentPadding: const EdgeInsets.all(0),
@@ -50,7 +51,7 @@ class _GalleryDescriptionScreenState extends State<GalleryDescriptionScreen> {
           ),
         ),
         toolbarHeight: 80,
-        backgroundColor: Colors.yellow,
+        backgroundColor: Theme.of(context).colorScheme.background,
       ),
       body: SafeArea(
         child: Padding(

@@ -71,7 +71,9 @@ class _GalleryScreenState extends State<GalleryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         title: Row(
           children: [
             Expanded(child: CupertinoSearchTextField()),
@@ -105,7 +107,6 @@ class _GalleryScreenState extends State<GalleryScreen> {
         ),
         centerTitle: true,
         toolbarHeight: 80,
-        backgroundColor: Colors.yellow,
       ),
       body: SingleChildScrollView(
         child: SafeArea(

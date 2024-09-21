@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:app/components/Profile/profile.dart';
 import 'package:app/pages/Gallery/gallery_screen.dart';
 import 'package:flutter/material.dart';
