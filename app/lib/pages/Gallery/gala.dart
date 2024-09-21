@@ -1,89 +1,104 @@
-// ignore_for_file: unused_import, prefer_const_constructors
+// // ignore_for_file: unused_import, prefer_const_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names, avoid_print
 
-import 'dart:convert';
-
-import 'package:app/components/gala_build.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
+// ignore_for_file: prefer_const_constructors, avoid_print
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-
-import '../../models/gallery_model.dart';
+import 'package:app/services/gala_services.dart';
+import '../../components/gala_build.dart';
 
 class Gala extends StatefulWidget {
-  const Gala({super.key});
+  final String selectedFilter;
+
+  const Gala({super.key, required this.selectedFilter});
 
   @override
   State<Gala> createState() => _GalaState();
 }
 
 class _GalaState extends State<Gala> {
-  List<GalleryModel> items = [];
+  static List<Map<String, dynamic>> DataList = [];
+  List<Map<String, dynamic>> filteredDataList = [];
+  GalleryServices Gs = GalleryServices();
+  bool isLoading = true;
 
   @override
   void initState() {
     super.initState();
-    // upload();
+    fetchData();
   }
 
-  Future<void> upload() async {
-    final String response = await rootBundle.loadString('assets/galas.json');
-    final List<dynamic> data = json.decode(response);
+  Future<void> fetchData() async {
+    try {
+      List<Map<String, dynamic>> fetchedData = await Gs.fetchGallery();
 
-    final FirebaseFirestore firestore = FirebaseFirestore.instance;
-
-    for (var item in data) {
-      await firestore.collection('test').add(item);
+      setState(() {
+        DataList = fetchedData;
+        filteredDataList =
+            fetchedData; 
+        isLoading = false;
+      });
+    } catch (e) {
+      print('Error fetching data: $e');
+      setState(() {
+        isLoading = false;
+      });
     }
   }
 
-  Future<List<Map<String, dynamic>>> fetchgala() async {
-    QuerySnapshot querySnapshot =
-        await FirebaseFirestore.instance.collection('test').get();
-    return querySnapshot.docs
-        .map((doc) => doc.data() as Map<String, dynamic>)
-        .toList();
+  void applyFilter() {
+    setState(() {
+      if (widget.selectedFilter.isNotEmpty) {
+        filteredDataList = DataList.where((item) {
+          final roomType = item['roomType'] as String?;
+          final theme = item['theme'] as String?;
+          final color = item['color'] as String?;
+          final rating = item['rating'] as String?;
+
+          return (roomType == widget.selectedFilter ||
+              theme == widget.selectedFilter ||
+              color == widget.selectedFilter ||
+              rating == widget.selectedFilter);
+        }).toList();
+      } else {
+        filteredDataList = DataList;
+      }
+    });
+  }
+
+  @override
+  void didUpdateWidget(covariant Gala oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.selectedFilter != widget.selectedFilter) {
+      applyFilter();
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('gala'),
-      ),
-      body: FutureBuilder<List<Map<String, dynamic>>>(
-        future: fetchgala(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
-          }
+    return isLoading
+        ? Center(child: CircularProgressIndicator())
+        : Column(
+            children: [
+              GridView.builder(
+                itemCount: filteredDataList.length,
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2, crossAxisSpacing: 10),
+                itemBuilder: (context, index) {
+                  var gala = filteredDataList[index];
+                  var image = gala['images'];
+                  String firstImage = '';
 
-          if (snapshot.hasError) {
-            return Center(child: Text('Error: ${snapshot.error}'));
-          }
+                  if (image is List && image.isNotEmpty) {
+                    firstImage = image[0];
+                  } else {
+                    firstImage = image.toString();
+                  }
 
-          if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return Center(child: Text('No gala Available'));
-          }
-
-          final Gala = snapshot.data!;
-
-          return ListView.builder(
-            itemCount: Gala.length, // Access length here
-            itemBuilder: (context, index) {
-              var gala = Gala[index];
-              var image = gala['images'];
-              String firstImage = '';
-              if (image is List && image.isNotEmpty) {
-                firstImage = image[0]; // Get the first author
-              } else {
-                firstImage = image.toString(); // Fallback if it's not a list
-              }
-              return MyGala(img: firstImage, title: gala['title']);
-            },
+                  return MyGala(DataList: gala,);
+                },
+              )
+            ],
           );
-        },
-      ),
-    );
   }
 }

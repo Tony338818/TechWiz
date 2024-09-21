@@ -1,57 +1,272 @@
-[
-  {
-    "id": "dsgn001",
-    "title": "Modern Living Room",
-    "roomType": "Living Room",
-    "style": "Modern",
-    "category": "Luxury",
-    "price": 12000,
-    "images": [
-      "https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      "https://images.pexels.com/photos/1571459/pexels-photo-1571459.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      "https://images.pexels.com/photos/1571458/pexels-photo-1571458.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-    ]
-  },
-  {
-    "id": "dsgn002",
-    "title": "Contemporary Dining Room",
-    "roomType": "Dining Room",
-    "style": "Contemporary",
-    "category": "Mid-range",
-    "price": 8000,
-    "images": [
-      "https://example.com/images/diningroom1_view1.jpg",
-      "https://example.com/images/diningroom1_view2.jpg"
-    ],
-    "isCustomizable": false,
-    "isFavorite": true,
-    "savedBy": [
-      "user789"
-    ]
-  },
-  {
-    "id": "dsgn003",
-    "title": "Minimalist Bedroom",
-    "roomType": "Bedroom",
-    "style": "Minimalist",
-    "category": "Budget",
-    "price": 5000,
-    "images": [
-      "https://example.com/images/bedroom1_view1.jpg",
-      "https://example.com/images/bedroom1_view2.jpg"
-    ]
-  },
-  {
-    "id": "dsgn004",
-    "title": "Industrial Kitchen",
-    "roomType": "Kitchen",
-    "style": "Industrial",
-    "category": "Luxury",
-    "price": 15000,
-    "images": [
-      "https://images.pexels.com/photos/276554/pexels-photo-276554.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      "https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      "https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-    ]
-  }
-]
+{
+  "bedrooms": [
+    {
+      "id": "dsgn001",
+      "title": "Modern Bedroom",
+      "roomType": "Bedroom",
+      "style": "Modern",
+      "category": "Luxury",
+      "price": 15000,
+      "description": "A stylish and contemporary bedroom design.",
+      "images": [
+        "https://images.pexels.com/photos/1234567/pexels-photo-1234567.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://storage.vivago.ai/image/p_e70e5760-76a9-11ef-81f1-6e8bfdc1f9a6.jpg?width=512",
+        "https://storage.vivago.ai/image/p_e89ad298-76a9-11ef-a53e-4ed4b81f76cb.jpg?width=512"
+      ],
+      "relatedProductIds": []
+    },
+    {
+      "id": "dsgn002",
+      "title": "Cozy Bedroom",
+      "roomType": "Bedroom",
+      "style": "Cozy",
+      "category": "Comfort",
+      "price": 8000,
+      "description": "A warm and inviting space for relaxation.",
+      "images": [
+        "https://images.pexels.com/photos/2233445/pexels-photo-2233445.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      ],
+      "relatedProductIds": []
+    },
+    {
+      "id": "dsgn003",
+      "title": "Minimalist Bedroom",
+      "roomType": "Bedroom",
+      "style": "Minimalist",
+      "category": "Modern",
+      "price": 9500,
+      "description": "An uncluttered and serene bedroom environment.",
+      "images": [
+        "https://images.pexels.com/photos/3344556/pexels-photo-3344556.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      ],
+      "relatedProductIds": []
+    },
+    {
+      "id": "dsgn004",
+      "title": "Elegant Bedroom",
+      "roomType": "Bedroom",
+      "style": "Elegant",
+      "category": "Luxury",
+      "price": 20000,
+      "description": "An exquisite bedroom design with luxury finishes.",
+      "images": [
+        "https://images.pexels.com/photos/4455667/pexels-photo-4455667.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      ],
+      "relatedProductIds": []
+    },
+    {
+      "id": "dsgn005",
+      "title": "Vintage Bedroom",
+      "roomType": "Bedroom",
+      "style": "Vintage",
+      "category": "Classic",
+      "price": 12000,
+      "description": "A charming bedroom design with vintage decor.",
+      "images": [
+        "https://images.pexels.com/photos/5566778/pexels-photo-5566778.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      ],
+      "relatedProductIds": []
+    }
+  ],
+  "Kitchens": [
+    {
+      "id": "dsgn001",
+      "title": "Modern Kitchen",
+      "roomType": "Kitchen",
+      "style": "Modern",
+      "category": "Luxury",
+      "price": 18000,
+      "description": "A sleek and stylish kitchen with modern appliances.",
+      "images": [
+        "https://images.pexels.com/photos/1234568/pexels-photo-1234568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      ],
+      "relatedProductIds": []
+    },
+    {
+      "id": "dsgn002",
+      "title": "Rustic Kitchen",
+      "roomType": "Kitchen",
+      "style": "Rustic",
+      "category": "Comfort",
+      "price": 13000,
+      "description": "A charming kitchen with rustic wooden elements.",
+      "images": [
+        "https://images.pexels.com/photos/2233446/pexels-photo-2233446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      ],
+      "relatedProductIds": []
+    },
+    {
+      "id": "dsgn003",
+      "title": "Contemporary Kitchen",
+      "roomType": "Kitchen",
+      "style": "Contemporary",
+      "category": "Modern",
+      "price": 15000,
+      "description": "An open and functional kitchen for modern living.",
+      "images": [
+        "https://images.pexels.com/photos/3344557/pexels-photo-3344557.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      ],
+      "relatedProductIds": []
+    },
+    {
+      "id": "dsgn004",
+      "title": "Classic Kitchen",
+      "roomType": "Kitchen",
+      "style": "Classic",
+      "category": "Luxury",
+      "price": 22000,
+      "description": "A timeless kitchen design with classic elements.",
+      "images": [
+        "https://images.pexels.com/photos/4455668/pexels-photo-4455668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      ],
+      "relatedProductIds": []
+    },
+    {
+      "id": "dsgn005",
+      "title": "Compact Kitchen",
+      "roomType": "Kitchen",
+      "style": "Minimalist",
+      "category": "Functional",
+      "price": 9000,
+      "description": "An efficient kitchen design for small spaces.",
+      "images": [
+        "https://images.pexels.com/photos/5566789/pexels-photo-5566789.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      ],
+      "relatedProductIds": []
+    }
+  ],
+  "Dinnings": [
+    {
+      "id": "dsgn001",
+      "title": "Modern Dining Room",
+      "roomType": "Dining Room",
+      "style": "Modern",
+      "category": "Luxury",
+      "price": 14000,
+      "description": "A chic dining area with modern furnishings.",
+      "images": [
+        "https://images.pexels.com/photos/1234569/pexels-photo-1234569.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      ],
+      "relatedProductIds": []
+    },
+    {
+      "id": "dsgn002",
+      "title": "Traditional Dining Room",
+      "roomType": "Dining Room",
+      "style": "Traditional",
+      "category": "Classic",
+      "price": 16000,
+      "description": "A beautifully designed traditional dining space.",
+      "images": [
+        "https://images.pexels.com/photos/2233447/pexels-photo-2233447.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      ],
+      "relatedProductIds": []
+    },
+    {
+      "id": "dsgn003",
+      "title": "Farmhouse Dining Room",
+      "roomType": "Dining Room",
+      "style": "Farmhouse",
+      "category": "Cozy",
+      "price": 12000,
+      "description": "A warm and inviting farmhouse dining experience.",
+      "images": [
+        "https://images.pexels.com/photos/3344558/pexels-photo-3344558.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      ],
+      "relatedProductIds": []
+    },
+    {
+      "id": "dsgn004",
+      "title": "Elegant Dining Room",
+      "roomType": "Dining Room",
+      "style": "Elegant",
+      "category": "Luxury",
+      "price": 18000,
+      "description": "An exquisite dining area for formal occasions.",
+      "images": [
+        "https://images.pexels.com/photos/4455669/pexels-photo-4455669.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      ],
+      "relatedProductIds": []
+    },
+    {
+      "id": "dsgn005",
+      "title": "Outdoor Dining Room",
+      "roomType": "Dining Room",
+      "style": "Outdoor",
+      "category": "Relaxed",
+      "price": 11000,
+      "description": "A refreshing outdoor dining setup.",
+      "images": [
+        "https://images.pexels.com/photos/5566790/pexels-photo-5566790.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      ],
+      "relatedProductIds": []
+    }
+  ],
+  "LivingRooms": [
+    {
+      "id": "dsgn001",
+      "title": "Stylish Living Room",
+      "roomType": "Living Room",
+      "style": "Stylish",
+      "category": "Luxury",
+      "price": 20000,
+      "description": "A beautifully styled living area for entertaining.",
+      "images": [
+        "https://images.pexels.com/photos/1234570/pexels-photo-1234570.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      ],
+      "relatedProductIds": []
+    },
+    {
+      "id": "dsgn002",
+      "title": "Classic Living Room",
+      "roomType": "Living Room",
+      "style": "Classic",
+      "category": "Elegant",
+      "price": 22000,
+      "description": "A timeless living space with classic decor.",
+      "images": [
+        "https://images.pexels.com/photos/2233448/pexels-photo-2233448.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      ],
+      "relatedProductIds": []
+    },
+    {
+      "id": "dsgn003",
+      "title": "Modern Rustic Living Room",
+      "roomType": "Living Room",
+      "style": "Rustic",
+      "category": "Cozy",
+      "price": 16000,
+      "description": "A warm and inviting rustic living room design.",
+      "images": [
+        "https://images.pexels.com/photos/3344559/pexels-photo-3344559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      ],
+      "relatedProductIds": []
+    },
+    {
+      "id": "dsgn004",
+      "title": "Minimalist Living Room",
+      "roomType": "Living Room",
+      "style": "Minimalist",
+      "category": "Modern",
+      "price": 14000,
+      "description": "A clean and uncluttered minimalist living area.",
+      "images": [
+        "https://images.pexels.com/photos/4455670/pexels-photo-4455670.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      ],
+      "relatedProductIds": []
+    },
+    {
+      "id": "dsgn005",
+      "title": "Bohemian Living Room",
+      "roomType": "Living Room",
+      "style": "Bohemian",
+      "category": "Artistic",
+      "price": 13000,
+      "description": "An eclectic living room filled with character.",
+      "images": [
+        "https://images.pexels.com/photos/5566791/pexels-photo-5566791.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      ],
+      "relatedProductIds": []
+    }
+  ]
+}

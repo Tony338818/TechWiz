@@ -6,6 +6,7 @@ class GalleryModel {
   String category;
   double price;
   List<String> images;
+  List<String> relatedProductId;
 
   GalleryModel(
       {required this.id,
@@ -14,7 +15,8 @@ class GalleryModel {
       required this.style,
       required this.category,
       required this.price,
-      required this.images});
+      required this.images,
+      required this.relatedProductId});
 
   factory GalleryModel.fromJson(Map<String, dynamic> gallery) {
     return GalleryModel(
@@ -24,7 +26,8 @@ class GalleryModel {
         style: gallery['style'],
         category: gallery['category'],
         price: gallery['price'],
-        images: List<String>.from(gallery['images']));
+        images: List<String>.from(gallery['images']),
+        relatedProductId : List<String>.from(gallery['relatedProductId']));
   }
 
   Map<String, dynamic> toMap() => {
@@ -34,6 +37,7 @@ class GalleryModel {
     'style':style,
     'category':category,
     'price':price,
-    'images':images
+    'images':images,
+    'relatedProductId':relatedProductId
   };
 }
