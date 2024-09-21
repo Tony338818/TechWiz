@@ -1,11 +1,11 @@
-// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
-
 import 'package:app/Auth/login_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../components/textField.dart';
 
 class SignUpScreen extends StatefulWidget {
+  final Function()? onTap;
+  const SignUpScreen({super.key, this.onTap});
 
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
@@ -27,6 +27,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 40.0),
@@ -39,13 +40,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
-                  color: Colors.brown,
+                  color: Theme.of(context).colorScheme.primary, // Uses primary color
                 ),
               ),
               SizedBox(height: 10),
               Text(
                 "Please register with email and sign up to continue using our app",
-                style: TextStyle(color: Colors.grey),
+                style: TextStyle(color: Theme.of(context).colorScheme.primary), // Uses onSecondary for subtle text
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 30),
@@ -54,44 +55,44 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CircleAvatar(
-                    backgroundColor: Colors.grey[200],
+                    backgroundColor: Theme.of(context).colorScheme.surface, // Uses surface color from theme
                     child: Icon(Icons.facebook, color: Colors.blue),
                   ),
                   SizedBox(width: 15),
                   CircleAvatar(
-                    backgroundColor: Colors.grey[200],
+                    backgroundColor: Theme.of(context).colorScheme.surface, // Uses surface color from theme
                     child: Icon(Icons.linked_camera, color: Colors.blue),
                   ),
                   SizedBox(width: 15),
                   CircleAvatar(
-                    backgroundColor: Colors.grey[200],
-                    child: Icon(Icons.apple, color: Colors.black),
+                    backgroundColor: Theme.of(context).colorScheme.surface, // Uses surface color from theme
+                    child: Icon(Icons.apple, color: Theme.of(context).colorScheme.primary),
                   ),
                 ],
               ),
               SizedBox(height: 20),
               Text(
                 "or sign up with email",
-                style: TextStyle(color: Colors.grey),
+                style: TextStyle(color: Theme.of(context).colorScheme.primary), // Uses onSecondary
               ),
               SizedBox(height: 20),
               // Full Name Field
-              MyTextField(controller: nameController, text: 'FullName', obscureText: false,),
+              MyTextField(controller: nameController, text: 'FullName', obscureText: false),
               SizedBox(height: 20),
               // User Name Field
-              MyTextField(controller: userNameController, text: 'UserName', obscureText: false,),
+              MyTextField(controller: userNameController, text: 'UserName', obscureText: false),
               SizedBox(height: 20),
               // Email Field
-              MyTextField(controller: emailController, text: 'Email', obscureText: false,),
+              MyTextField(controller: emailController, text: 'Email', obscureText: false),
               SizedBox(height: 20),
-              // phone number Field
-              MyTextField(controller: phoneController, text: 'Phone number', obscureText: false,),
-              SizedBox(height: 20),
-              // Password Field
-              MyTextField(controller: passwordController, text: 'Password', obscureText: true,),
+              // Phone number Field
+              MyTextField(controller: phoneController, text: 'Phone number', obscureText: false),
               SizedBox(height: 20),
               // Password Field
-              MyTextField(controller: confirmPasswordController, text: 'Confirm Password', obscureText: true,),
+              MyTextField(controller: passwordController, text: 'Password', obscureText: true),
+              SizedBox(height: 20),
+              // Confirm Password Field
+              MyTextField(controller: confirmPasswordController, text: 'Confirm Password', obscureText: true),
               SizedBox(height: 10),
               // Terms and Conditions
               Row(
@@ -100,7 +101,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Expanded(
                     child: Text(
                       "I agree with the terms of service and privacy policy",
-                      style: TextStyle(color: Colors.grey),
+                      style: TextStyle(color: Theme.of(context).colorScheme.primary), // Uses onSecondary
                     ),
                   ),
                 ],
@@ -110,23 +111,34 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.brown,
+                  backgroundColor: Theme.of(context).colorScheme.primary, // Uses primary color
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
                   minimumSize: Size(double.infinity, 50),
                 ),
-                child: Text("Sign Up", style: TextStyle(color: Colors.white)),
+                child: Text("Sign Up", style: TextStyle(color: Theme.of(context).colorScheme.secondary)), // Uses secondary (white)
               ),
               SizedBox(height: 10),
-              TextButton(
-                onPressed: () {
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()));
-                },
-                child: Text(
-                  "Already have an account? Log in",
-                  style: TextStyle(color: Colors.brown),
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Already have an account?",
+                    style: TextStyle(color: Theme.of(context).colorScheme.primary), // Uses primary color
+                  ),
+                  const SizedBox(width: 5),
+                  GestureDetector(
+                    onTap: widget.onTap,
+                    child: Text(
+                      "Log In",
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.primary, // Uses primary color
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

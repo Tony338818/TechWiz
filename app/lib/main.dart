@@ -2,14 +2,17 @@
 import 'package:app/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'Designers/Profile/profile.dart';
-
+import 'auth/login_or_register.dart';
+import 'themes/theme_provder.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+      create: (_) => ThemeProvider(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -20,11 +23,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Urban Living',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: ProfilePage(email: 'email.com',),
+      theme: Provider.of<ThemeProvider>(context).themeData,
+      home: LoginOrRegister(),
     );
   }
 }

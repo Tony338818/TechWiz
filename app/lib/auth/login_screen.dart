@@ -1,12 +1,21 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors
-
 import 'package:app/auth/register_screen.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatelessWidget {
+import '../MainScreen.dart';
+
+class LoginScreen extends StatefulWidget {
+  final Function()? onTap;
+  const LoginScreen({super.key, this.onTap});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 40.0),
@@ -17,20 +26,20 @@ class LoginScreen extends StatelessWidget {
               Icon(
                 Icons.lock,
                 size: 150,
-                color: Colors.brown,
+                color: Theme.of(context).colorScheme.primary, // Uses primary color from theme
               ),
               Text(
                 "Log In",
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
-                  color: Colors.brown,
+                  color: Theme.of(context).colorScheme.primary, // Uses primary color from theme
                 ),
               ),
               SizedBox(height: 10),
               Text(
                 "Please login to continue using our app",
-                style: TextStyle(color: Colors.grey),
+                style: TextStyle(color: Theme.of(context).colorScheme.primary), // Uses onSecondary for subtle text
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 30),
@@ -39,25 +48,25 @@ class LoginScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CircleAvatar(
-                    backgroundColor: Colors.grey[200],
+                    backgroundColor: Theme.of(context).colorScheme.surface, // Uses surface color from theme
                     child: Icon(Icons.facebook, color: Colors.blue),
                   ),
                   SizedBox(width: 15),
                   CircleAvatar(
-                    backgroundColor: Colors.grey[200],
+                    backgroundColor: Theme.of(context).colorScheme.surface, // Uses surface color from theme
                     child: Icon(Icons.g_mobiledata, color: Colors.blue),
                   ),
                   SizedBox(width: 15),
                   CircleAvatar(
-                    backgroundColor: Colors.grey[200],
-                    child: Icon(Icons.apple, color: Colors.black),
+                    backgroundColor: Theme.of(context).colorScheme.surface, // Uses surface color from theme
+                    child: Icon(Icons.apple, color: Theme.of(context).colorScheme.primary),
                   ),
                 ],
               ),
               SizedBox(height: 20),
               Text(
                 "or login with email",
-                style: TextStyle(color: Colors.grey),
+                style: TextStyle(color: Theme.of(context).colorScheme.primary), // Uses onSecondary
               ),
               SizedBox(height: 20),
               // Email Field
@@ -77,7 +86,7 @@ class LoginScreen extends StatelessWidget {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  suffixIcon: Icon(Icons.visibility_off),
+                  suffixIcon: Icon(Icons.visibility_off, color: Theme.of(context).colorScheme.onSecondary), // onSecondary for icon
                 ),
                 obscureText: true,
               ),
@@ -89,14 +98,14 @@ class LoginScreen extends StatelessWidget {
                   Row(
                     children: [
                       Checkbox(value: false, onChanged: (value) {}),
-                      Text("Remember me"),
+                      Text("Remember me", style: TextStyle(color: Theme.of(context).colorScheme.primary)), // Uses primary color
                     ],
                   ),
                   TextButton(
                     onPressed: () {},
                     child: Text(
                       "Forgot Password?",
-                      style: TextStyle(color: Colors.brown),
+                      style: TextStyle(color: Theme.of(context).colorScheme.primary), // Uses primary color
                     ),
                   ),
                 ],
@@ -104,25 +113,39 @@ class LoginScreen extends StatelessWidget {
               SizedBox(height: 20),
               // Log In Button
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(
+                      context, MaterialPageRoute(builder: (context) => MainScreen()));
+                },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.brown,
+                  backgroundColor: Theme.of(context).colorScheme.primary, // Uses primary color for button
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
                   minimumSize: Size(double.infinity, 50),
                 ),
-                child: Text("Log In", style: TextStyle(color: Colors.white)),
+                child: Text("Log In", style: TextStyle(color: Theme.of(context).colorScheme.secondary)), // Uses secondary (white)
               ),
               SizedBox(height: 10),
-              TextButton(
-                onPressed: () {
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignUpScreen()));
-                },
-                child: Text(
-                  "Don't have an account? Sign Up",
-                  style: TextStyle(color: Colors.brown),
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Don't have an account?",
+                    style: TextStyle(color: Theme.of(context).colorScheme.primary), // Uses primary color
+                  ),
+                  const SizedBox(width: 5),
+                  GestureDetector(
+                    onTap: widget.onTap,
+                    child: Text(
+                      "Sign Up",
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.primary, // Uses primary color
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
